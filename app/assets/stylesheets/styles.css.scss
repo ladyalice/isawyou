@@ -1,0 +1,35 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+$navbarBackgroundHighlight: #a8dfea;
+$navbarBackground: #a8dfea;
+$btnPrimaryBackground: deeppink;
+
+@import 'bootstrap';
+@import 'bootstrap-responsive';
+$baseFontFamily: Oxygen;
+@import url(http://fonts.googleapis.com/css?family=Oxygen);
+
+body{
+    padding-top: 60px;
+}
+
+
+.navbar-inner{
+    @include box-shadow(none !important);
+    border: 0;
+    
+
+}
+
+.footer {
+	margin-top: 50px;
+	color: $grayLight;
+	a {
+
+		color:gray;
+	}
+}
