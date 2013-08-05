@@ -1,4 +1,7 @@
 Isawyou::Application.routes.draw do
+  resources :pics
+
+
   devise_for :users
 
   root :to => 'pages#home'
