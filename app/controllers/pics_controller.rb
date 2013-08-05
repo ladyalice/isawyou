@@ -1,4 +1,6 @@
 class PicsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index]
+
   # GET /pics
   # GET /pics.json
   def index
@@ -24,7 +26,7 @@ class PicsController < ApplicationController
   # GET /pics/new
   # GET /pics/new.json
   def new
-    @pic = Pic.new
+    @pic = current_user.pics.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +36,13 @@ class PicsController < ApplicationController
 
   # GET /pics/1/edit
   def edit
-    @pic = Pic.find(params[:id])
+    @pic = current_user.pics.find(params[:id])
   end
 
   # POST /pics
   # POST /pics.json
   def create
-    @pic = Pic.new(params[:pic])
+    @pic = current_user.pics.new(params[:pic])
 
     respond_to do |format|
       if @pic.save
@@ -56,7 +58,7 @@ class PicsController < ApplicationController
   # PUT /pics/1
   # PUT /pics/1.json
   def update
-    @pic = Pic.find(params[:id])
+    @pic = current_user.pics.find(params[:id])
 
     respond_to do |format|
       if @pic.update_attributes(params[:pic])
@@ -72,7 +74,7 @@ class PicsController < ApplicationController
   # DELETE /pics/1
   # DELETE /pics/1.json
   def destroy
-    @pic = Pic.find(params[:id])
+    @pic = current_user.pics.find(params[:id])
     @pic.destroy
 
     respond_to do |format|
