@@ -2,13 +2,15 @@
 	<div class="span6 offset3">
 		<div class="well">
 		<p>
-  			<%= @pic.description %>
+  		<%= @pic.description %>
 		</p>
 		<p>
 		<%= @pic.user.name %>
 		</p>
+		<% if current_user == @pic.user %>
 		<%= link_to 'Edit', edit_pic_path(@pic) %> |
 		<%= link_to 'Back', pics_path %>
+		<% end %>
 		</div>
 	</div>
 </div>
